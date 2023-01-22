@@ -1,0 +1,13 @@
+<div id="<%= dom_id moderated_model %>">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h2 class="display-6 text-muted">Content</h2>
+      <p class="lead"><%= moderated_model.content %></p>
+      <h4 class="text-muted">Status:</h4>
+      <p class="lead"><%= moderated_model.is_accepted ? "Accepted" : "Rejected" %></p>
+      <%= link_to "Edit", edit_moderated_model_path(@moderated_model), class:"btn btn-success" %> |
+      <%= link_to "Back", moderated_models_path, class:"btn btn-dark" %>
+    </div>
+
+  </div>
+</div>

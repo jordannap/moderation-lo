@@ -1,0 +1,24 @@
+<%= form_with(model: moderated_model) do |form| %>
+    <% if moderated_model.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(moderated_model.errors.count, "error") %> prohibited this moderated model from being saved:</h2>
+
+        <ul>
+          <% moderated_model.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class=" align-items-center d-flex flex-column mb-3">
+      <%= form.label :content, style: "display: block" %>
+      <%= form.text_area :content, class:"form-control w-50 mt-2", placeholder:"Type content here..."%>
+    </div>
+
+    <div>
+      <%= form.submit "Save", class:"btn btn-success" %> |
+      <%= link_to "Back", moderated_models_path, class:"btn btn-dark" %>
+    </div>
+  <% end %>
+  

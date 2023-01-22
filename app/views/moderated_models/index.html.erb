@@ -1,0 +1,30 @@
+<div class="container-fluid mt-3">
+    <div class="container">
+    <% if @moderated_models.present? %>
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Content</th>
+                    <th>Accepted Status</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% @moderated_models.each do |moderated_model| %>
+                <tr>
+                    <td><%= moderated_model.id %></td>
+                    <td class="text-dark" style="max-width: 300px;"><%= moderated_model.content %></td>
+                    <td><%= moderated_model.is_accepted ? "Accepted" : "Rejected" %></td>
+                    <td><%= link_to "Show", moderated_model, class:"btn btn-dark" %></td>
+                    <td><%= button_to "Destroy", moderated_model, method: :delete, class:"btn btn-dark" %></td>
+
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+    <% else %>
+            <h4 class="display-6 text-center">No Content To Show :( </h4>
+    <% end %>
+    </div>
+</div>
